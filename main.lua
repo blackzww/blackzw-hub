@@ -133,10 +133,11 @@ Tabs.Exclusividades:AddButton({
 })
 
 Tabs.Exclusividades:AddButton({
-    Title = "PEGAR A NOVA CLASSE (EGGSLINGER)",
+    Title = "PEGAR A CLASSE DO OVO 🥚",
     Callback = function()
         -- Coloque o código do script exclusivo aqui
-   loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/dead-rails-teleport-everywhere/refs/heads/main/teleport%20all%20locations'))()  -- Troque pela URL do seu script exclusivo
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/m00ndiety/Eggslinger-/refs/heads/main/obfuscated%20(1).txt"))()
+        -- Troque pela URL do seu script exclusivo
     end
 })
 
