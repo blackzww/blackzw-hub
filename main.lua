@@ -1,4 +1,4 @@
--- Carregar a biblioteca Fluent
+-- Carregar biblioteca Fluent
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 if not Fluent then
@@ -25,62 +25,65 @@ local Tabs = {
 	Settings = Window:AddTab({ Title = "Configurações ⚙️" })
 }
 
--- INÍCIO
+-- Aba Início
 Tabs.Inicio:AddParagraph({
 	Title = "Bem-vindo ao blackzw's Hub! 🎉",
 	Content = "Aqui você encontrará vários scripts horríveis para jogos horríveis no Roblox. Não aproveite esse lixo! 🚀"
 })
-
 Tabs.Inicio:AddParagraph({
 	Title = "Só uma coisa eduardopikagran",
 	Content = "Nunca compre scripts, odeio quem faz script pago."
 })
-
 Tabs.Inicio:AddParagraph({
 	Title = "Instagram",
 	Content = "blackzw.mp3"
 })
 
--- SCRIPTS (com barra de pesquisa)
-local scriptButtons = {}
+-- Lista de scripts com título e URL
+local scriptList = {
+	{Title = "AUTO BOND FARM (RAPIDÃO) ⚡️", URL = "https://raw.githubusercontent.com/thiennrb7/Script/refs/heads/main/autobond"},
+	{Title = "Dead Rails HUB 1 💣", URL = "https://raw.githubusercontent.com/ScriptBeLike/Tera-DeadRails/refs/heads/main/Meteor%20V1"},
+	{Title = "Dead Rails HUB 2 💥", URL = "https://lunor.dev/loader"},
+	{Title = "Dead Rails HUB 3 (MUITOOOO BOMM) 💯", URL = "https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"},
+	{Title = "AUTO BOND FARM (LENTO) 🐢", URL = "https://lunor.dev/loader"},
+	{Title = "AUTO FARM BOND (SUPER LENTO) 🐌", URL = "https://raw.githubusercontent.com/Iyreeee/Dead-Rails/refs/heads/main/main.lua"},
+	{Title = "Dead Rails (Matar os bixo) 💀", URL = "https://raw.githubusercontent.com/Iyreeee/Dead-Rails/refs/heads/main/main.lua"},
+	{Title = "Brookhaven Script (99% Bugado) 💥", URL = "https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/New.lua"}
+}
 
-local searchBox = Tabs.Main:AddInput("SearchBox", {
+Tabs.Main:AddParagraph({Title = "Feito pelo blackzw 💡", Content = "Esses scripts são bem bons! Aproveite! 🚀"})
+
+-- Área onde os botões serão inseridos dinamicamente
+local scriptSection = Tabs.Main:AddSection("scripts")
+
+local function renderButtons(filter)
+	scriptSection:Clear() -- Limpa os botões anteriores
+	for _, item in ipairs(scriptList) do
+		if not filter or string.find(item.Title:lower(), filter:lower()) then
+			scriptSection:AddButton({
+				Title = item.Title,
+				Callback = function()
+					loadstring(game:HttpGet(item.URL))()
+				end
+			})
+		end
+	end
+end
+
+-- Campo de pesquisa
+Tabs.Main:AddInput("SearchScripts", {
 	Title = "Pesquisar Script",
-	Placeholder = "Digite o nome...",
+	Placeholder = "Digite para filtrar...",
 	Default = "",
 	Callback = function(text)
-		for _, data in pairs(scriptButtons) do
-			if string.find(string.lower(data.title), string.lower(text)) then
-				data.button:Show()
-			else
-				data.button:Hide()
-			end
-		end
+		renderButtons(text)
 	end
 })
 
-local function addScriptButton(tab, title, url)
-	local btn = tab:AddButton({
-		Title = title,
-		Callback = function()
-			loadstring(game:HttpGet(url))()
-		end
-	})
-	table.insert(scriptButtons, { title = title, button = btn })
-end
+-- Renderizar todos os botões inicialmente
+renderButtons()
 
-Tabs.Main:AddParagraph({ Title = "Feito pelo blackzw 💡", Content = "Esses scripts são bem bons! Aproveite! 🚀" })
-
-addScriptButton(Tabs.Main, "AUTO BOND FARM (RAPIDÃO) ⚡️", "https://raw.githubusercontent.com/thiennrb7/Script/refs/heads/main/autobond")
-addScriptButton(Tabs.Main, "Dead Rails HUB 1 💣", "https://raw.githubusercontent.com/ScriptBeLike/Tera-DeadRails/refs/heads/main/Meteor%20V1")
-addScriptButton(Tabs.Main, "Dead Rails HUB 2 💥", "https://lunor.dev/loader")
-addScriptButton(Tabs.Main, "Dead Rails HUB 3 (MUITOOOO BOMM) 💯", "https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader")
-addScriptButton(Tabs.Main, "AUTO BOND FARM (LENTO) 🐢", "https://lunor.dev/loader")
-addScriptButton(Tabs.Main, "AUTO FARM BOND (SUPER LENTO) 🐌", "https://raw.githubusercontent.com/Iyreeee/Dead-Rails/refs/heads/main/main.lua")
-addScriptButton(Tabs.Main, "Dead Rails (Matar os bixo) 💀", "https://raw.githubusercontent.com/Iyreeee/Dead-Rails/refs/heads/main/main.lua")
-addScriptButton(Tabs.Main, "Brookhaven Script (99% Bugado) 💥", "https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/New.lua")
-
--- EXCLUSIVIDADES
+-- Exclusividades
 Tabs.Exclusividades:AddButton({
 	Title = "Script Fly 🔥",
 	Callback = function()
@@ -113,7 +116,7 @@ Tabs.Exclusividades:AddButton({
 	end
 })
 
--- CONFIGURAÇÕES
+-- Configurações
 Tabs.Settings:AddToggle("MyToggle", {
 	Title = "Ativar Função",
 	Description = "Ative ou desative a função.",
