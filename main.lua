@@ -1,14 +1,11 @@
--- Carregar a biblioteca com tratamento de erro
-local success, FluentLib = pcall(function()
-    return loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/main/main.lua"))()
-end)
+-- Carregar a biblioteca Fluent
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
-if not success then
-    warn("Falha ao carregar o Fluent! Verifique a conexão ou o link.")
+-- Verificação para garantir que a biblioteca foi carregada corretamente
+if not Fluent then
+    warn("Erro ao carregar o Fluent! Hub não pode ser iniciado.")
     return
 end
-
-local Fluent = FluentLib
 
 -- Notificação de execução
 Fluent:Notify({
@@ -32,23 +29,21 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Configurações ⚙️", Icon = "settings" })  -- Aba de configurações (colocada por último)
 }
 
--- Adicionar parágrafos na aba "Início"
+-- Adicionar parágrafo na aba "Início"
 Tabs.Inicio:AddParagraph({
     Title = "Bem-vindo ao blackzw's Hub! 🎉",
     Content = "Aqui você encontrará vários scripts horríveis para jogos horríveis no Roblox. Não aproveite esse lixo! 🚀"
 })
-
 Tabs.Inicio:AddParagraph({
-    Title = "So uma coisa eduardopikagran ",
-    Content = "nunca compre scripts, odeio quem faz script pago."
+    Title = "Só uma coisa eduardopikagran ",
+    Content = "Nunca compre scripts, odeio quem faz script pago."
 })
-
 Tabs.Inicio:AddParagraph({
     Title = "Instagram",
     Content = "@blackzw.mp3"
 })
 
--- Adicionar parágrafos na aba "Main"
+-- Adicionar parágrafo na aba "Main"
 Tabs.Main:AddParagraph({
     Title = "Feito pelo blackzw 💡",
     Content = "Esses scripts são bem bons! Aproveite! 🚀"
@@ -109,7 +104,7 @@ Tabs.Main:AddButton({
     end
 })
 
--- Adicionar parágrafos na aba "Exclusividades"
+-- Adicionar parágrafo na aba "Exclusividades"
 Tabs.Exclusividades:AddParagraph({
     Title = "Scripts Exclusivos 🎉",
     Content = "Aqui estão alguns scripts exclusivos e especiais. 🌟"
@@ -119,26 +114,26 @@ Tabs.Exclusividades:AddParagraph({
 Tabs.Exclusividades:AddButton({
     Title = "Script Fly 🔥", 
     Callback = function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()  
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()  -- não poe errado burro
     end
 })
 
 Tabs.Exclusividades:AddButton({
     Title = "Script Noclip ruim 🌀", 
     Callback = function() 
-        loadstring(game:HttpGet("https://pastebin.com/raw/g0th1qz2"))()  
+        loadstring(game:HttpGet("https://pastebin.com/raw/g0th1qz2"))()  -- Substitua com o link real
     end
 })
 
 Tabs.Exclusividades:AddButton({
     Title = "Infinity Yield 👑", 
     Callback = function() 
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()  
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()  -- no tempo dos imbu
     end
 })
 
 Tabs.Exclusividades:AddButton({
-    Title = "PEGAR CLASSE CAVALO(PERM) 🐴", 
+    Title = "PEGAR CLASSE CAVALO(PERM) 🐴",  -- Troque pelo nome do seu script
     Callback = function()
         local args = {
             [1] = "Horse"
@@ -161,9 +156,9 @@ local Toggle = Tabs.Settings:AddToggle("MyToggle", {
     Default = false, 
     Callback = function(state)
         if state then
-            -- Função ativada
+            -- A função está ativada (não foi especificado o que fazer quando ativado)
         else
-            -- Função desativada
+            -- A função está desativada (não foi especificado o que fazer quando desativado)
         end
     end
 })
