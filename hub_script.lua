@@ -68,6 +68,13 @@ Tabs.Main:AddButton({
 })
 
 Tabs.Main:AddButton({
+    Title = "Dead Rails HUB 3 (MUITO BOMM) 💯", 
+    Callback = function() 
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptBeLike/Tera-DeadRails/refs/heads/main/Meteor%20V1"))() 
+    end
+})
+
+Tabs.Main:AddButton({
     Title = "AUTO BOND FARM (LENTO) 🐢", 
     Callback = function() 
         loadstring(game:HttpGet('https://lunor.dev/loader'))() 
