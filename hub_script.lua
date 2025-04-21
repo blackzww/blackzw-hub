@@ -16,7 +16,7 @@ Fluent:Notify({
 
 -- Criar a janela do hub
 local Window = Fluent:CreateWindow({
-    Title = "blackzw's Ultimate Hub " .. Fluent.Version, 
+    Title = "blackzw's Hub (Free Version) " .. Fluent.Version, 
     TabWidth = 160, 
     Size = UDim2.fromOffset(580, 460), 
     Theme = "Dark"
