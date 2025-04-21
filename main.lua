@@ -126,6 +126,22 @@ Tabs.Exclusividades:AddButton({
         loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()  -- no tempo dos imbu
     end
 })
+Tabs.Exclusividades:AddButton({
+    Title = "PEGAR CLASSE CAVALO(PERM) 🐴",  -- Troque pelo nome do seu script
+    Callback = function()
+        local args = {
+    [1] = "Horse"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_BuyClass"):FireServer(unpack(args))
+task.wait(0.5)
+local args = {
+    [1] = "Horse"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_EquipClass"):FireServer(unpack(args))
+    end
+})
 
 -- Configurações (alterador)
 local Toggle = Tabs.Settings:AddToggle("MyToggle", {
@@ -140,4 +156,3 @@ local Toggle = Tabs.Settings:AddToggle("MyToggle", {
         end
     end
 })
-
