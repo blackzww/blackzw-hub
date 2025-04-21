@@ -15,7 +15,7 @@ Fluent:Notify({
 
 -- Criar a janela do hub
 local Window = Fluent:CreateWindow({
-    Title = "blackzw's Ultimate Hub " .. Fluent.Version,
+    Title = "blackzw's Hub Free Version " .. Fluent.Version,
     TabWidth = 160, 
     Size = UDim2.fromOffset(580, 460), 
     Theme = "Dark"
@@ -67,6 +67,13 @@ Tabs.Main:AddButton({
     Title = "Dead Rails HUB 2 💥", 
     Callback = function() 
         loadstring(game:HttpGet('https://lunor.dev/loader'))() 
+    end
+})
+
+Tabs.Main:AddButton({
+    Title = "Dead Rails HUB 3 (MUITOOOO BOMM) 💯", 
+    Callback = function() 
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"))() 
     end
 })
 
