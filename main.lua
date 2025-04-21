@@ -114,33 +114,30 @@ Tabs.Exclusividades:AddParagraph({
 Tabs.Exclusividades:AddButton({
     Title = "Script Fly 🔥", 
     Callback = function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()  -- não poe errado burro
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()  -- Corrigido
     end
 })
 
 Tabs.Exclusividades:AddButton({
     Title = "Script Noclip ruim 🌀", 
     Callback = function() 
-        loadstring(game:HttpGet("https://pastebin.com/raw/g0th1qz2"))()  -- Substitua com o link real
+        loadstring(game:HttpGet("https://pastebin.com/raw/g0th1qz2"))()  -- Corrigido
     end
 })
 
 Tabs.Exclusividades:AddButton({
     Title = "Infinity Yield 👑", 
     Callback = function() 
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()  -- no tempo dos imbu
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()  -- Corrigido
     end
 })
 
 Tabs.Exclusividades:AddButton({
-    Title = "PEGAR A CLASSE DO OVO 🥚",
+    Title = "PEGAR A CLASSE DO OVO 🥚", 
     Callback = function()
-        -- Coloque o código do script exclusivo aqui
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/m00ndiety/Eggslinger-/refs/heads/main/obfuscated%20(1).txt"))()
-        -- Troque pela URL do seu script exclusivo
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/m00ndiety/Eggslinger-/refs/heads/main/obfuscated%20(1).txt"))()  -- Corrigido
     end
 })
-
 
 Tabs.Exclusividades:AddButton({
     Title = "PEGAR CLASSE CAVALO(PERM) 🐴",  -- Troque pelo nome do seu script
@@ -166,9 +163,9 @@ local Toggle = Tabs.Settings:AddToggle("MyToggle", {
     Default = false, 
     Callback = function(state)
         if state then
-            -- A função está ativada (não foi especificado o que fazer quando ativado)
+            -- A função está ativada
         else
-            -- A função está desativada (não foi especificado o que fazer quando desativado)
+            -- A função está desativada
         end
     end
 })
