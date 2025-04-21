@@ -1,5 +1,14 @@
--- Carregar a biblioteca
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+-- Carregar a biblioteca com tratamento de erro
+local success, FluentLib = pcall(function()
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/main/main.lua"))()
+end)
+
+if not success then
+    warn("Falha ao carregar o Fluent! Verifique a conexão ou o link.")
+    return
+end
+
+local Fluent = FluentLib
 
 -- Notificação de execução
 Fluent:Notify({
@@ -23,21 +32,23 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Configurações ⚙️", Icon = "settings" })  -- Aba de configurações (colocada por último)
 }
 
--- Adicionar parágrafo na aba "Início"
+-- Adicionar parágrafos na aba "Início"
 Tabs.Inicio:AddParagraph({
     Title = "Bem-vindo ao blackzw's Hub! 🎉",
-    Content = "Aqui você encontrará vários scripts horriveis para jogos horriveis no Roblox. Não aproveite esse lixo! 🚀"
+    Content = "Aqui você encontrará vários scripts horríveis para jogos horríveis no Roblox. Não aproveite esse lixo! 🚀"
 })
+
 Tabs.Inicio:AddParagraph({
     Title = "So uma coisa eduardopikagran ",
     Content = "nunca compre scripts, odeio quem faz script pago."
 })
+
 Tabs.Inicio:AddParagraph({
-    Title = "Instragram",
+    Title = "Instagram",
     Content = "@blackzw.mp3"
 })
 
--- Adicionar parágrafo na aba "Main"
+-- Adicionar parágrafos na aba "Main"
 Tabs.Main:AddParagraph({
     Title = "Feito pelo blackzw 💡",
     Content = "Esses scripts são bem bons! Aproveite! 🚀"
@@ -98,7 +109,7 @@ Tabs.Main:AddButton({
     end
 })
 
--- Adicionar parágrafo na aba "Exclusividades"
+-- Adicionar parágrafos na aba "Exclusividades"
 Tabs.Exclusividades:AddParagraph({
     Title = "Scripts Exclusivos 🎉",
     Content = "Aqui estão alguns scripts exclusivos e especiais. 🌟"
@@ -108,39 +119,39 @@ Tabs.Exclusividades:AddParagraph({
 Tabs.Exclusividades:AddButton({
     Title = "Script Fly 🔥", 
     Callback = function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()  -- não poe errado burro
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()  
     end
 })
-
 
 Tabs.Exclusividades:AddButton({
     Title = "Script Noclip ruim 🌀", 
     Callback = function() 
-        loadstring(game:HttpGet("https://pastebin.com/raw/g0th1qz2"))()  -- Substitua com o link real
+        loadstring(game:HttpGet("https://pastebin.com/raw/g0th1qz2"))()  
     end
 })
 
 Tabs.Exclusividades:AddButton({
     Title = "Infinity Yield 👑", 
     Callback = function() 
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()  -- no tempo dos imbu
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()  
     end
 })
+
 Tabs.Exclusividades:AddButton({
-    Title = "PEGAR CLASSE CAVALO(PERM) 🐴",  -- Troque pelo nome do seu script
-    Callback = function()
-        local args = {
-    [1] = "Horse"
-}
+    Title = "PEGAR CLASSE CAVALO(PERM) 🐴", 
+    Callback = function()
+        local args = {
+            [1] = "Horse"
+        }
 
-game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_BuyClass"):FireServer(unpack(args))
-task.wait(0.5)
-local args = {
-    [1] = "Horse"
-}
+        game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_BuyClass"):FireServer(unpack(args))
+        task.wait(0.5)
+        local args = {
+            [1] = "Horse"
+        }
 
-game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_EquipClass"):FireServer(unpack(args))
-    end
+        game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_EquipClass"):FireServer(unpack(args))
+    end
 })
 
 -- Configurações (alterador)
@@ -150,9 +161,9 @@ local Toggle = Tabs.Settings:AddToggle("MyToggle", {
     Default = false, 
     Callback = function(state)
         if state then
-            -- A função está ativada (Não vou adicionar nada não gpt)
+            -- Função ativada
         else
-            -- A função está desativada (Num quero nada)
+            -- Função desativada
         end
     end
 })
