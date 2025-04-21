@@ -40,7 +40,7 @@ Tabs.Inicio:AddParagraph({
 })
 Tabs.Inicio:AddParagraph({
     Title = "Instagram",
-    Content = "@blackzw.mp3"
+    Content = "blackzw.mp3"
 })
 
 -- Aba Main
