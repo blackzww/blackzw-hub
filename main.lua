@@ -13,29 +13,29 @@ Fluent:Notify({
     Content = "Esse scripthub foi executado. Boa sorte! 💻"
 })
 
--- Criar a janela do hub com o nome atualizado
+-- Criar a janela do hub
 local Window = Fluent:CreateWindow({
-    Title = "blackzw's Ultimate Hub " .. Fluent.Version,  -- Nome atualizado
+    Title = "blackzw's Ultimate Hub " .. Fluent.Version,
     TabWidth = 160, 
     Size = UDim2.fromOffset(580, 460), 
     Theme = "Dark"
 })
 
--- Definir as abas
+-- Definir abas
 local Tabs = {
-    Inicio = Window:AddTab({ Title = "Início 🏠" }),  -- Nova aba de "Início"
-    Main = Window:AddTab({ Title = "Scripts 🎮" }),  -- Aba principal com scripts
-    Exclusividades = Window:AddTab({ Title = "Exclusividades 🌟" }),  -- Aba de scripts exclusivos
-    Settings = Window:AddTab({ Title = "Configurações ⚙️", Icon = "settings" })  -- Aba de configurações (colocada por último)
+    Inicio = Window:AddTab({ Title = "Início 🏠" }),
+    Main = Window:AddTab({ Title = "Scripts 🎮" }),
+    Exclusividades = Window:AddTab({ Title = "Exclusividades 🌟" }),
+    Settings = Window:AddTab({ Title = "Configurações ⚙️", Icon = "settings" })
 }
 
--- Adicionar parágrafo na aba "Início"
+-- Aba Início
 Tabs.Inicio:AddParagraph({
     Title = "Bem-vindo ao blackzw's Hub! 🎉",
     Content = "Aqui você encontrará vários scripts horríveis para jogos horríveis no Roblox. Não aproveite esse lixo! 🚀"
 })
 Tabs.Inicio:AddParagraph({
-    Title = "Só uma coisa eduardopikagran ",
+    Title = "Só uma coisa eduardopikagran",
     Content = "Nunca compre scripts, odeio quem faz script pago."
 })
 Tabs.Inicio:AddParagraph({
@@ -43,13 +43,12 @@ Tabs.Inicio:AddParagraph({
     Content = "@blackzw.mp3"
 })
 
--- Adicionar parágrafo na aba "Main"
+-- Aba Main
 Tabs.Main:AddParagraph({
     Title = "Feito pelo blackzw 💡",
     Content = "Esses scripts são bem bons! Aproveite! 🚀"
 })
 
--- Adicionar botões para os scripts na aba "Main"
 Tabs.Main:AddButton({
     Title = "AUTO BOND FARM (RAPIDÃO) ⚡️", 
     Callback = function() 
@@ -104,68 +103,53 @@ Tabs.Main:AddButton({
     end
 })
 
--- Adicionar parágrafo na aba "Exclusividades"
+-- Aba Exclusividades
 Tabs.Exclusividades:AddParagraph({
     Title = "Scripts Exclusivos 🎉",
     Content = "Aqui estão alguns scripts exclusivos e especiais. 🌟"
 })
 
--- Adicionar botões para os scripts exclusivos
 Tabs.Exclusividades:AddButton({
     Title = "Script Fly 🔥", 
     Callback = function() 
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()  -- Corrigido
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))() 
     end
 })
 
 Tabs.Exclusividades:AddButton({
     Title = "Script Noclip ruim 🌀", 
     Callback = function() 
-        loadstring(game:HttpGet("https://pastebin.com/raw/g0th1qz2"))()  -- Corrigido
+        loadstring(game:HttpGet("https://pastebin.com/raw/g0th1qz2"))() 
     end
 })
 
 Tabs.Exclusividades:AddButton({
     Title = "Infinity Yield 👑", 
     Callback = function() 
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()  -- Corrigido
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source', true))() 
     end
 })
 
 Tabs.Exclusividades:AddButton({
-    Title = "PEGAR A CLASSE DO OVO 🥚", 
+    Title = "PEGAR CLASSE CAVALO(PERM) 🐴",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/m00ndiety/Eggslinger-/refs/heads/main/obfuscated%20(1).txt"))()  -- Corrigido
-    end
-})
-
-Tabs.Exclusividades:AddButton({
-    Title = "PEGAR CLASSE CAVALO(PERM) 🐴",  -- Troque pelo nome do seu script
-    Callback = function()
-        local args = {
-            [1] = "Horse"
-        }
-
+        local args = { [1] = "Horse" }
         game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_BuyClass"):FireServer(unpack(args))
         task.wait(0.5)
-        local args = {
-            [1] = "Horse"
-        }
-
         game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_EquipClass"):FireServer(unpack(args))
     end
 })
 
--- Configurações (alterador)
-local Toggle = Tabs.Settings:AddToggle("MyToggle", {
+-- Aba Configurações
+Tabs.Settings:AddToggle("MyToggle", {
     Title = "Ativar Função", 
     Description = "Ative ou desative a função.", 
     Default = false, 
     Callback = function(state)
         if state then
-            -- A função está ativada
+            -- ativado
         else
-            -- A função está desativada
+            -- desativado
         end
     end
 })
