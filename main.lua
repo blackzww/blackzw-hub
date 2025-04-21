@@ -1,3 +1,4 @@
+-- Carrega a biblioteca Fluent
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 if not Fluent then
@@ -6,180 +7,145 @@ if not Fluent then
 end
 
 Fluent:Notify({
-    Title = "Executado 🚀",
-    Content = "Esse scripthub foi executado com sucesso! 🛠️ Boa sorte!"
+    Title = "Executado com sucesso 🚀",
+    Content = "Bem-vindo ao Hub do blackzw! Divirta-se! 🎮"
 })
 
--- Tamanho padrão (médio)
-local windowSize = UDim2.fromOffset(580, 460)
-
+-- Janela do Hub
+local WindowSize = UDim2.fromOffset(580, 460)
 local Window = Fluent:CreateWindow({
     Title = "blackzw's Hub Free Version " .. Fluent.Version,
     TabWidth = 160,
-    Size = windowSize,
+    Size = WindowSize,
     Theme = "Dark"
 })
 
+-- TABS
 local Tabs = {
     Inicio = Window:AddTab({ Title = "Início 🏠" }),
-    Main = Window:AddTab({ Title = "Scripts 🎮" }),
-    Exclusividades = Window:AddTab({ Title = "Exclusivos 🌟" }),
-    Settings = Window:AddTab({ Title = "Configurações ⚙️" })
+    Scripts = Window:AddTab({ Title = "Scripts 🎮" }),
+    Exclusivos = Window:AddTab({ Title = "Exclusivos 🌟" }),
+    Config = Window:AddTab({ Title = "Configurações ⚙️" })
 }
 
--- Início
+-- INÍCIO
 Tabs.Inicio:AddParagraph({
-    Title = "Bem-vindo! 🎉",
-    Content = "Explore scripts insanos para jogos ainda piores no Roblox! 🚀"
+    Title = "Bem-vindo ao blackzw's Hub! 🎉",
+    Content = "Aqui tem scripts insanos, memes e mais! Prepare-se! 💣"
 })
-
 Tabs.Inicio:AddParagraph({
-    Title = "Recado do blackzw 📢",
-    Content = "Nunca compre scripts. Odeio quem faz script pago. ⚠️"
+    Title = "blackzw no Insta 📸",
+    Content = "Siga: @blackzw.mp3"
 })
 
-Tabs.Inicio:AddParagraph({
-    Title = "Me siga! 📱",
-    Content = "Instagram: blackzw.mp3"
+-- SCRIPTS
+Tabs.Scripts:AddParagraph({
+    Title = "Scripts para Dead Rails 🔥",
+    Content = "Bonds, farms e caos total! ⚡"
 })
 
--- Scripts
-Tabs.Main:AddParagraph({
-    Title = "Scripts Disponíveis 💻",
-    Content = "Escolha seu script favorito e divirta-se! 🎮"
-})
+local scripts = {
+    { Title = "AUTO BOND FARM ⚡️", Url = "https://raw.githubusercontent.com/thiennrb7/Script/refs/heads/main/autobond" },
+    { Title = "Dead Rails HUB 1 💣", Url = "https://raw.githubusercontent.com/ScriptBeLike/Tera-DeadRails/refs/heads/main/Meteor%20V1" },
+    { Title = "Dead Rails HUB 2 💥", Url = "https://lunor.dev/loader" },
+    { Title = "Dead Rails HUB 3 💯", Url = "https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader" },
+    { Title = "AUTO BOND FARM 🐢", Url = "https://lunor.dev/loader" },
+    { Title = "AUTO FARM (Lento) 🐌", Url = "https://raw.githubusercontent.com/Iyreeee/Dead-Rails/refs/heads/main/main.lua" },
+    { Title = "Matar Inimigos 💀", Url = "https://raw.githubusercontent.com/Iyreeee/Dead-Rails/refs/heads/main/main.lua" },
+    { Title = "Brookhaven Bugado 💥", Url = "https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/New.lua" }
+}
 
-Tabs.Main:AddButton({
-    Title = "AUTO BOND FARM ⚡",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/thiennrb7/Script/refs/heads/main/autobond"))()
-    end
-})
+for _, v in pairs(scripts) do
+    Tabs.Scripts:AddButton({
+        Title = v.Title,
+        Callback = function()
+            loadstring(game:HttpGet(v.Url))()
+        end
+    })
+end
 
-Tabs.Main:AddButton({
-    Title = "Dead Rails HUB 1 💣",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptBeLike/Tera-DeadRails/refs/heads/main/Meteor%20V1"))()
-    end
-})
-
-Tabs.Main:AddButton({
-    Title = "Dead Rails HUB 2 💥",
-    Callback = function()
-        loadstring(game:HttpGet('https://lunor.dev/loader'))()
-    end
-})
-
-Tabs.Main:AddButton({
-    Title = "Dead Rails HUB 3 💯",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"))()
-    end
-})
-
-Tabs.Main:AddButton({
-    Title = "Brookhaven Script 🏠",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/kigredns/SanderXV4.2.2/refs/heads/main/New.lua'))()
-    end
-})
-
--- Exclusivos
-Tabs.Exclusividades:AddParagraph({
-    Title = "Exclusividades do Hub 🔒",
-    Content = "Só aqui você encontra esses! 🌈"
-})
-
-Tabs.Exclusividades:AddButton({
-    Title = "Script Fly ✈️",
+-- EXCLUSIVOS
+Tabs.Exclusivos:AddButton({
+    Title = "Script Fly 🔥",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
     end
 })
-
-Tabs.Exclusividades:AddButton({
-    Title = "Noclip 🌀",
+Tabs.Exclusivos:AddButton({
+    Title = "Script Noclip 🌀",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/g0th1qz2"))()
     end
 })
-
-Tabs.Exclusividades:AddButton({
+Tabs.Exclusivos:AddButton({
     Title = "Infinity Yield 👑",
     Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source', true))()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
     end
 })
-
-Tabs.Exclusividades:AddButton({
-    Title = "Classe Cavalo 🐴",
+Tabs.Exclusivos:AddButton({
+    Title = "Classe Cavalo PERM 🐴",
     Callback = function()
         local args = { [1] = "Horse" }
-        game:GetService("ReplicatedStorage").Shared.RemotePromise.Remotes.C_BuyClass:FireServer(unpack(args))
+        local RS = game:GetService("ReplicatedStorage").Shared.RemotePromise.Remotes
+        RS.C_BuyClass:FireServer(unpack(args))
         task.wait(0.5)
-        game:GetService("ReplicatedStorage").Shared.RemotePromise.Remotes.C_EquipClass:FireServer(unpack(args))
+        RS.C_EquipClass:FireServer(unpack(args))
     end
 })
 
--- Configurações
-Tabs.Settings:AddParagraph({
-    Title = "Personalize seu Hub ⚙️",
-    Content = "Ajuste o visual e tamanho do hub como quiser!"
+-- CONFIGURAÇÕES
+Tabs.Config:AddColorPicker("CorTema", {
+    Title = "Cor do Tema 🎨",
+    Default = Color3.fromRGB(50, 50, 50),
+    Callback = function(color)
+        Window:SetTheme({
+            Background = color
+        })
+    end
 })
 
--- Tamanho do Hub
-Tabs.Settings:AddDropdown("HubSize", {
-    Title = "Tamanho da Janela 📐",
+Tabs.Config:AddDropdown("TamanhoTela", {
+    Title = "Tamanho da Janela 🖥️",
     Values = { "Pequeno", "Médio", "Grande" },
     Default = "Médio",
-    Callback = function(size)
-        local sizes = {
-            Pequeno = UDim2.fromOffset(400, 320),
+    Callback = function(option)
+        local sizeMap = {
+            Pequeno = UDim2.fromOffset(400, 300),
             Médio = UDim2.fromOffset(580, 460),
             Grande = UDim2.fromOffset(720, 540)
         }
-        Window:SetSize(sizes[size])
+        Window:SetSize(sizeMap[option])
     end
 })
 
--- Tema com cor personalizada
-Tabs.Settings:AddColorPicker("ThemeColorPicker", {
-    Title = "Cor do Tema 🎨",
-    Default = Color3.fromRGB(255, 0, 127),
-    Callback = function(color)
-        Window:SetBackgroundColor(color)
-    end
-})
-
--- Modo Pro Gamer
-Tabs.Settings:AddToggle("ProGamerMode", {
-    Title = "Modo Pro Gamer 💻",
-    Description = "Ative para melhorar o desempenho.",
-    Default = false,
-    Callback = function(state)
-        if state then
-            -- Remover cabelo
-            local character = game.Players.LocalPlayer.Character
-            if character then
-                for _, accessory in ipairs(character:GetDescendants()) do
-                    if accessory:IsA("Accessory") and accessory:FindFirstChild("Handle") and accessory.Handle:FindFirstChild("HairAttachment") then
-                        accessory:Destroy()
-                    end
+Tabs.Config:AddButton({
+    Title = "Modo Pro Gamer 🎮",
+    Callback = function()
+        -- Remover cabelo
+        local char = game.Players.LocalPlayer.Character
+        if char then
+            for _, v in pairs(char:GetChildren()) do
+                if v:IsA("Accessory") or v:IsA("Hat") then
+                    v:Destroy()
                 end
             end
+        end
 
-            -- Aplicar configurações gráficas
-            local lighting = game:GetService("Lighting")
-            lighting.GlobalShadows = false
-            lighting.FogEnd = 100000
-            lighting.Brightness = 1
-            lighting.OutdoorAmbient = Color3.new(0.5, 0.5, 0.5)
+        -- Gráficos estilo Minecraft
+        local lighting = game:GetService("Lighting")
+        lighting.Ambient = Color3.fromRGB(128, 128, 128)
+        lighting.Brightness = 1
+        lighting.ColorShift_Bottom = Color3.fromRGB(0, 0, 0)
+        lighting.ColorShift_Top = Color3.fromRGB(0, 255, 0)
+        lighting.EnvironmentDiffuseScale = 0
+        lighting.EnvironmentSpecularScale = 0
+        lighting.OutdoorAmbient = Color3.fromRGB(127, 255, 127)
+        lighting.GlobalShadows = false
+    end
+})
 
-            for _, obj in ipairs(workspace:GetDescendants()) do
-                if obj:IsA("BasePart") then
-                    obj.Material = Enum.Material.Plastic
-                    obj.Reflectance = 0
-                elseif obj:IsA("Decal") or obj:IsA("Texture") then
-                    obj.Trans
-::contentReference[oaicite:0]{index=0}
- 
+Tabs.Config:AddParagraph({
+    Title = "Dica 💡",
+    Content = "Sempre use 'Modo Pro Gamer' para mais FPS e estilo Minecraft! 🧱"
+})
